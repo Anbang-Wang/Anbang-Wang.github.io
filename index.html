@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anbang Wang | Homepage</title>
+  <meta name="description" content="Anbang Wang — PhD Candidate at Sun Yat-sen University (SYSU) and Visiting PhD Student at Imperial College London, Department of Bioengineering. Research in AI for cardiovascular science, CFD hemodynamics, and coronary intervention planning." />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg-glass:rgba(255,255,255,0.04);
+      --card:rgba(255,255,255,0.18);
+      --muted:#374151;
+      --text:#111827;
+      --brand:#2563eb;
+      --accent:#0ea5e9;
+      --ring:rgba(37,99,235,.35);
+      --w:1200px;
+      --r:18px;
+      --blur:18px;
+      --venue:#1F3A5F;
+      --nav-h:60px;
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#eef3f8;
+        --bg-glass:rgba(255,255,255,0.5);
+        --card:#ffffff;
+        --muted:#5b6474;
+        --text:#0b1020;
+        --brand:#0f62fe;
+        --accent:#0ea5e9;
+        --ring:rgba(14,165,233,.25);
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:calc(var(--nav-h) + 16px);
+    }
+
+    body{
+      margin:0;
+      font:16px/1.65 'Inter', system-ui, -apple-system, Segoe UI, Roboto;
+      color:var(--text);
+      background:radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      min-height:100vh;
+    }
+
+    .page{
+      max-width:var(--w);
+      margin:0 auto;
+      padding:0 16px 40px;
+    }
+
+    /* Sticky Top Nav */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      background:rgba(11,16,32,0.72);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      margin:0 -16px 24px;
+      padding:0 16px;
+    }
+
+    .topbar-inner{
+      max-width:var(--w);
+      margin:0 auto;
+      min-height:var(--nav-h);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .logo{
+      font-weight:700;
+      font-size:18px;
+      color:#fff;
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:4px;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      scrollbar-width:none;
+    }
+    .nav-links::-webkit-scrollbar{display:none}
+
+    .nav-links a{
+      color:#cbd5e1;
+      text-decoration:none;
+      font-size:13.5px;
+      font-weight:500;
+      padding:6px 12px;
+      border-radius:8px;
+      white-space:nowrap;
+      transition:all 0.2s ease;
+    }
+    .nav-links a:hover{
+      color:#fff;
+      background:rgba(255,255,255,0.08);
+    }
+    .nav-links a.active{
+      color:#fff;
+      background:rgba(37,99,235,0.32);
+    }
+
+    .lang-switch{
+      display:flex;
+      gap:4px;
+      flex-shrink:0;
+    }
+    .lang-switch button{
+      background:transparent;
+      border:1px solid rgba(37,99,235,0.55);
+      color:#93c5fd;
+      padding:4px 10px;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:12.5px;
+      transition:all 0.2s;
+    }
+    .lang-switch button:hover,
+    .lang-switch button.active{
+      background:var(--brand);
+      color:white;
+    }
+
+    @media(max-width:720px){
+      .topbar-inner{flex-wrap:wrap;padding:10px 0;gap:8px;}
+      .logo{font-size:16px}
+      .nav-links{order:3;width:100%;overflow-x:auto;padding-bottom:4px;}
+      .nav-links a{font-size:12.5px;padding:5px 10px;}
+    }
+
+    /* Layout */
+    .layout{
+      display:flex;
+      gap:26px;
+      align-items:flex-start;
+    }
+
+    .sidebar{
+      width:310px;
+      flex:0 0 310px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      position:sticky;
+      top:calc(var(--nav-h) + 16px);
+    }
+
+    .main{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      min-width:0;
+    }
+
+    .card, section{
+      background:var(--card);
+      backdrop-filter:blur(var(--blur));
+      border-radius:var(--r);
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow:0 8px 25px rgba(0,0,0,.22);
+    }
+
+    section{
+      scroll-margin-top:calc(var(--nav-h) + 16px);
+    }
+
+    /* Headshot */
+    .headshot-card{
+      padding:0;
+      width:180px;
+      height:180px;
+      margin:0 auto;
+      background:rgba(255,255,255,0.22);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border:2px solid rgba(255,255,255,0.5);
+      backdrop-filter:blur(10px);
+    }
+
+    .headshot{
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      overflow:hidden;
+    }
+
+    .headshot img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      border-radius:50%;
+    }
+
+    /* Profile card */
+    .profile-name{
+      font-size:24px;
+      font-weight:700;
+      margin-bottom:4px;
+      color:var(--text);
+    }
+    .profile-subtitle{
+      font-size:13.5px;
+      color:var(--muted);
+      margin-bottom:8px;
+      line-height:1.5;
+    }
+    .profile-idline{
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      margin-bottom:10px;
+    }
+    .profile-idline a{color:var(--brand);text-decoration:none;}
+    .profile-idline a:hover{text-decoration:underline;}
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:10px;
+    }
+    .tag{
+      padding:5px 10px;
+      border-radius:999px;
+      background:#0b1220;
+      border:1px solid rgba(110,168,254,.35);
+      font-size:11.5px;
+      color:#c7dbff;
+      white-space:nowrap;
+    }
+
+    /* Section headings */
+    h2{
+      font-size:20px;
+      margin:0 0 12px;
+      font-weight:700;
+      color:var(--text);
+    }
+
+    .section-body{
+      font-size:14.5px;
+      color:var(--text);
+      line-height:1.75;
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    /* Generic item */
+    .item,
+    .pub-row,
+    .edu-row{
+      background:rgba(255,255,255,0.38);
+      border-radius:14px;
+      padding:16px 18px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      border:1px solid rgba(255,255,255,0.32);
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 14px rgba(0,0,0,0.10);
+      transition:0.25s ease;
+    }
+    .item:hover,
+    .pub-row:hover,
+    .edu-row:hover{
+      background:rgba(255,255,255,0.52);
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
+    }
+    .item.block{display:block;}
+
+    .title{
+      font-size:14.5px;
+      font-weight:600;
+      margin-bottom:4px;
+      color:var(--text);
+    }
+    .meta{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    /* Education */
+    .edu-left{
+      width:54px;
+      min-width:54px;
+      flex:0 0 54px;
+    }
+    .edu-left img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      border-radius:8px;
+    }
+    .edu-right{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      flex:1;
+      min-width:0;
+    }
+
+    /* Research */
+    .res-item{
+      background:rgba(255,255,255,0.38);
+      border-radius:14px;
+      padding:14px 18px;
+      border:1px solid rgba(255,255,255,0.32);
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 14px rgba(0,0,0,0.10);
+      transition:0.25s ease;
+    }
+    .res-item:hover{
+      background:rgba(255,255,255,0.52);
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
+    }
+    .res-item .title{font-size:15px;font-weight:700;color:#0f172a;margin-bottom:2px;}
+    .res-item .meta{font-size:12.5px;color:#4b5563;margin-bottom:8px;}
+    .res-item .desc{font-size:13.5px;color:#1f2937;line-height:1.55;}
+    .res-outcome{margin-top:6px;font-size:12.5px;color:var(--venue);font-style:italic;}
+
+    /* Publications tabs */
+    .pub-tabs{
+      display:flex;
+      gap:6px;
+      margin:4px 0 16px;
+      border-bottom:1px solid rgba(255,255,255,0.15);
+      padding-bottom:0;
+      flex-wrap:wrap;
+    }
+    .pub-tab{
+      padding:8px 16px;
+      font-size:14px;
+      font-weight:600;
+      color:#475569;
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      border-bottom:2px solid transparent;
+      margin-bottom:-1px;
+      transition:all 0.2s ease;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      white-space:nowrap;
+    }
+    .pub-tab:hover{
+      color:#0f172a;
+      background:rgba(255,255,255,0.15);
+      border-radius:8px 8px 0 0;
+    }
+    .pub-tab.active{
+      color:var(--brand);
+      border-bottom-color:var(--brand);
+    }
+    .pub-tab .count{
+      font-size:11.5px;
+      font-weight:700;
+      background:rgba(37,99,235,0.12);
+      color:var(--brand);
+      padding:1px 8px;
+      border-radius:999px;
+      min-width:22px;
+      text-align:center;
+    }
+    .pub-tab.active .count{
+      background:var(--brand);
+      color:white;
+    }
+    .pub-panel{display:none;}
+    .pub-panel.active{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    /* Publication rows */
+    .pub-row{display:block;cursor:pointer;}
+    .pub-main{display:flex;flex-direction:row;gap:14px;align-items:flex-start;}
+    .pub-left{
+      width:110px;
+      min-width:110px;
+      flex:0 0 110px;
+    }
+    .pub-thumb{
+      width:100%;
+      height:76px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.04em;
+      text-align:center;
+      padding:6px;
+      line-height:1.3;
+    }
+    .pub-right{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+    .pub-right .title{
+      font-size:14.5px;
+      font-weight:650;
+      color:#0f172a;
+      line-height:1.4;
+      margin-bottom:2px;
+    }
+
+    .venue-badge{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:6px;
+      background:rgba(31,58,95,0.12);
+      color:var(--venue);
+      font-size:12px;
+      font-weight:600;
+      margin-left:4px;
+      white-space:nowrap;
+    }
+    .venue-badge.top{background:rgba(220,38,38,0.08);color:#991b1b;}
+    .venue-badge.conf{background:rgba(5,150,105,0.10);color:#065f46;}
+    .venue-badge.review{background:rgba(14,165,233,0.12);color:#075985;}
+
+    /* Publication expand detail */
+    .pub-detail{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.35s ease, opacity 0.25s ease;
+      opacity:0;
+    }
+    .pub-row.expanded .pub-detail{
+      max-height:600px;
+      opacity:1;
+    }
+    .pub-detail-inner{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid rgba(0,0,0,0.08);
+    }
+    .pub-abstract{
+      font-size:13px;
+      color:#374151;
+      line-height:1.7;
+      margin-bottom:10px;
+    }
+    .pub-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .pub-link{
+      font-size:12px;
+      font-weight:600;
+      color:var(--brand);
+      text-decoration:none;
+      padding:3px 10px;
+      border:1px solid rgba(37,99,235,0.35);
+      border-radius:6px;
+      transition:all 0.18s;
+    }
+    .pub-link:hover{background:var(--brand);color:#fff;}
+    .pub-toggle{
+      float:right;
+      font-size:11px;
+      color:#94a3b8;
+      margin-top:2px;
+      transition:transform 0.3s;
+      user-select:none;
+    }
+    .pub-row.expanded .pub-toggle{transform:rotate(180deg);}
+
+    /* Two col */
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    footer{
+      margin-top:26px;
+      text-align:center;
+      font-size:13px;
+      color:#9ca3af;
+    }
+
+    /* Responsive */
+    @media(max-width:960px){
+      .layout{flex-direction:column;}
+      .sidebar{position:static;width:100%;flex:unset;}
+    }
+    @media(max-width:640px){
+      .two-col{grid-template-columns:1fr;}
+      .pub-row{flex-direction:column;}
+      .pub-left{flex-basis:auto;max-width:200px;width:100%;margin:0 auto;}
+      .edu-row{flex-direction:column;text-align:center;}
+      .edu-left{max-width:80px;margin:0 auto;}
+      .pub-tab{padding:6px 10px;font-size:13px;}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo" data-en="Anbang Wang" data-zh="王安邦">Anbang Wang</div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about"        data-en="About"        data-zh="关于">About</a>
+        <a href="#education"    data-en="Education"    data-zh="教育">Education</a>
+        <a href="#research"     data-en="Research"     data-zh="科研">Research</a>
+        <a href="#publications" data-en="Publications" data-zh="论文">Publications</a>
+        <a href="#skills"       data-en="Skills"       data-zh="技能">Skills</a>
+      </nav>
+
+      <div class="lang-switch">
+        <button id="btnEn" class="active" onclick="switchLang('en')">EN</button>
+        <button id="btnZh" onclick="switchLang('zh')">中文</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="layout">
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+
+        <div class="card headshot-card">
+          <div class="headshot">
+            <img src="logo/photo.jpg" alt="Anbang Wang" />
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-name" data-en="Anbang Wang" data-zh="王安邦">Anbang Wang</div>
+          <div class="profile-subtitle"
+               data-en="PhD Candidate, Sun Yat-sen University · Visiting PhD Student, Imperial College London"
+               data-zh="博士研究生，中山大学 · 访问博士生，帝国理工学院">
+            PhD Candidate, Sun Yat-sen University · Visiting PhD Student, Imperial College London
+          </div>
+
+          <div class="profile-idline">
+            <span>&#128222; +86 198 6605 5280</span>
+            <span>&#9993; <a href="mailto:w.anbang25@imperial.ac.uk">w.anbang25@imperial.ac.uk</a></span>
+            <span>&#9993; <a href="mailto:wanganb@mail2.sysu.edu.cn">wanganb@mail2.sysu.edu.cn</a></span>
+            <span><svg width="16" height="16" viewBox="0 0 98 96" style="vertical-align:-2px;margin-right:4px;fill:#cbd5e1" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg><a href="https://github.com/wanganb123" target="_blank">GitHub: wanganb123</a></span>
+            <span><svg width="16" height="16" viewBox="0 0 256 256" style="vertical-align:-3px;margin-right:4px" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path d="M86.3 186.2H70.9V79.1h15.4zm-7.7-120.9c-4.9 0-8.9-4-8.9-8.9s4-8.9 8.9-8.9 8.9 4 8.9 8.9-4 8.9-8.9 8.9zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111 183 93 148 93h-23.7v79.4z" fill="#fff"/></svg><a href="https://orcid.org/0009-0005-4685-5690" target="_blank">ORCID: 0009-0005-4685-5690</a></span>
+          </div>
+
+          <div class="tags">
+            <span class="tag" data-en="Computational Cardiovascular Medicine" data-zh="计算心血管医学">Computational Cardiovascular Medicine</span>
+            <span class="tag" data-en="Medical Image Computing" data-zh="医学影像计算">Medical Image Computing</span>
+            <span class="tag" data-en="Physics-guided Medical AI" data-zh="物理约束医学人工智能">Physics-guided Medical AI</span>
+            <span class="tag" data-en="Cardiovascular Hemodynamics Modeling" data-zh="心血管血流动力学建模">Cardiovascular Hemodynamics Modeling</span>
+            <span class="tag" data-en="AI-guided Interventional Planning" data-zh="AI 辅助介入治疗规划">AI-guided Interventional Planning</span>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+
+        <!-- About -->
+        <section id="about">
+          <h2 data-en="About Me" data-zh="关于我">About Me</h2>
+          <div class="section-body">
+            <p data-en="I am a PhD Candidate at Sun Yat-sen University (SYSU), supervised by Prof. Heye Zhang, and currently a Visiting PhD Student in the Department of Bioengineering at Imperial College London, supervised by Prof. Guang Yang. My research sits at the intersection of Artificial Intelligence and cardiovascular medicine. I develop physics-informed neural networks and operator learning methods for non-invasive coronary hemodynamic assessment (FFR, IMR), and intelligent reinforcement learning systems for virtual coronary intervention planning — with the goal of improving clinical decision-making in the catheterisation laboratory."
+               data-zh="我是中山大学的博士研究生，导师为张贺晔教授，目前在帝国理工学院生物工程系进行访问研究，导师为 Guang Yang 教授。我的研究处于人工智能与心血管医学的交叉领域：开发物理信息神经网络与算子学习方法，用于无创冠脉血流动力学评估（FFR、IMR），以及基于强化学习的虚拟冠脉介入智能规划系统，旨在提升导管室临床决策的效率与精度。">
+              I am a PhD Candidate at Sun Yat-sen University (SYSU), supervised by Prof. Heye Zhang, and currently a Visiting PhD Student in the Department of Bioengineering at Imperial College London, supervised by Prof. Guang Yang. My research sits at the intersection of Artificial Intelligence and cardiovascular medicine. I develop physics-informed neural networks and operator learning methods for non-invasive coronary hemodynamic assessment (FFR, IMR), and intelligent reinforcement learning systems for virtual coronary intervention planning — with the goal of improving clinical decision-making in the catheterisation laboratory.
+            </p>
+          </div>
+        </section>
+
+        <!-- Education — time descending (latest first) -->
+        <section id="education">
+          <h2 data-en="Education" data-zh="教育经历">Education</h2>
+          <div class="list">
+
+            <div class="edu-row">
+              <div class="edu-left"><img src="logo/Imperial.png" alt="Imperial College London"></div>
+              <div class="edu-right">
+                <div class="title">
+                  <strong data-en="Visiting PhD Student — Bioengineering" data-zh="访问博士生 — 生物工程">Visiting PhD Student — Bioengineering</strong>
+                </div>
+                <div class="meta"
+                     data-en="Department of Bioengineering, Imperial College London · Nov 2025 — Present · Supervisor: Prof. Guang Yang"
+                     data-zh="英国帝国理工学院 生物工程系 · 2025年11月 — 至今 · 导师：Guang Yang 教授">
+                  Department of Bioengineering, Imperial College London · Nov 2025 — Present · Supervisor: Prof. Guang Yang
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-row">
+              <div class="edu-left"><img src="logo/sysu.jpeg" alt="Sun Yat-sen University"></div>
+              <div class="edu-right">
+                <div class="title">
+                  <strong data-en="PhD Candidate — Biomedical Engineering" data-zh="博士研究生 — 生物医学工程">PhD Candidate — Biomedical Engineering</strong>
+                </div>
+                <div class="meta"
+                     data-en="Sun Yat-sen University (SYSU), Shenzhen · Sep 2022 — Present · Supervisor: Prof. Heye Zhang"
+                     data-zh="中山大学，深圳 · 2022年9月 — 至今 · 导师：张贺晔教授">
+                  Sun Yat-sen University (SYSU), Shenzhen · Sep 2022 — Present · Supervisor: Prof. Heye Zhang
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-row">
+              <div class="edu-left"><img src="logo/sysu.jpeg" alt="Sun Yat-sen University"></div>
+              <div class="edu-right">
+                <div class="title">
+                  <strong data-en="B.E. — Biomedical Engineering" data-zh="工学学士 — 生物医学工程">B.E. — Biomedical Engineering</strong>
+                </div>
+                <div class="meta"
+                     data-en="Sun Yat-sen University (SYSU), Shenzhen · Sep 2018 — Jun 2022"
+                     data-zh="中山大学，深圳 · 2018年9月 — 2022年6月">
+                  Sun Yat-sen University (SYSU), Shenzhen · Sep 2018 — Jun 2022
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Research -->
+        <section id="research">
+          <h2 data-en="Research Experience" data-zh="科研经历">Research Experience</h2>
+          <div class="list">
+
+            <div class="res-item">
+              <div class="title" data-en="AI-guided Virtual PCI Planning and Stent Optimization" data-zh="AI 辅助虚拟 PCI 与支架策略优化">AI-guided Virtual PCI Planning and Stent Optimization</div>
+              <div class="meta" data-en="Sun Yat-sen University / Imperial College London · 2024 — Present" data-zh="中山大学 / 帝国理工学院 · 2024 — 至今">Sun Yat-sen University / Imperial College London · 2024 — Present</div>
+              <div class="desc" data-en="Developing an intelligent interventional planning framework that moves beyond functional diagnosis toward treatment strategy optimization. This work integrates coronary image reconstruction, FFR curve prediction, fast hemodynamic surrogate modeling, and physiology-aware decision learning to evaluate counterfactual stent deployment strategies, including stent position, length, and diameter. The long-term goal is to build an end-to-end virtual PCI system that supports interpretable, verifiable, and interactive personalized coronary intervention planning." data-zh="开发面向冠脉介入治疗的智能规划框架，将研究重点从“功能学诊断”推进到“治疗策略优化”。该方向整合冠脉影像重建、FFR 曲线预测、快速血流动力学代理模型与生理约束决策学习，用于评估不同支架位置、长度和直径对术后血流改善的潜在影响。研究目标是构建从冠脉影像、功能学评估到个体化支架方案推荐的端到端虚拟 PCI 系统，为临床介入规划提供可解释、可验证、可交互的智能决策支持。">Developing an intelligent interventional planning framework that moves beyond functional diagnosis toward treatment strategy optimization. This work integrates coronary image reconstruction, FFR curve prediction, fast hemodynamic surrogate modeling, and physiology-aware decision learning to evaluate counterfactual stent deployment strategies, including stent position, length, and diameter. The long-term goal is to build an end-to-end virtual PCI system that supports interpretable, verifiable, and interactive personalized coronary intervention planning.</div>
+              <div class="res-outcome" data-en="Outcome: IEEE Transactions on Medical Imaging (2026)" data-zh="成果：IEEE Transactions on Medical Imaging (2026)">Outcome: IEEE Transactions on Medical Imaging (2026)</div>
+            </div>
+
+            <div class="res-item">
+              <div class="title" data-en="Physics-informed Neural Operators for Cardiovascular Digital Physiology" data-zh="物理信息神经算子与心血管数字生理">Physics-informed Neural Operators for Cardiovascular Digital Physiology</div>
+              <div class="meta" data-en="Sun Yat-sen University · 2023 — Present" data-zh="中山大学 · 2023 — 至今">Sun Yat-sen University · 2023 — Present</div>
+              <div class="desc" data-en="Designed physics-informed and physics-encoded learning frameworks that map vascular anatomy and physiological boundary conditions to continuous pressure–flow fields. Rather than treating FFR prediction as a black-box regression problem, these methods incorporate geometric associations, Navier–Stokes-based physical constraints, local variational residuals, tree-structured vascular topology, and test-time domain adaptation into the learning process. This research enables continuous FFR curve prediction, improved cross-modality generalization, and interpretable hemodynamic modeling across cardiovascular systems." data-zh="设计面向心血管血流动力学的物理约束学习框架，将血管几何、边界条件与物理规律映射为连续压力—流量场。相关工作不再将 FFR 预测简单视为黑箱回归，而是将血管几何关联、Navier–Stokes 物理约束、局部变分残差、树结构血管拓扑和测试时域适应机制嵌入模型学习过程，从而实现连续 FFR 曲线预测、跨模态泛化和可解释的血流动力学建模。">Designed physics-informed and physics-encoded learning frameworks that map vascular anatomy and physiological boundary conditions to continuous pressure–flow fields. Rather than treating FFR prediction as a black-box regression problem, these methods incorporate geometric associations, Navier–Stokes-based physical constraints, local variational residuals, tree-structured vascular topology, and test-time domain adaptation into the learning process. This research enables continuous FFR curve prediction, improved cross-modality generalization, and interpretable hemodynamic modeling across cardiovascular systems.</div>
+              <div class="res-outcome" data-en="Outcome: IEEE Transactions on Medical Imaging, 2024; Medical Image Analysis, 2025; Expert Systems with Applications, 2026." data-zh="成果：IEEE Transactions on Medical Imaging, 2024; Medical Image Analysis, 2025; Expert Systems with Applications, 2026。">Outcome: IEEE Transactions on Medical Imaging, 2024; Medical Image Analysis, 2025; Expert Systems with Applications, 2026.</div>
+            </div>
+
+            <div class="res-item">
+              <div class="title" data-en="Image-derived Cardiovascular Hemodynamics" data-zh="基于影像的心血管血流动力学计算">Image-derived Cardiovascular Hemodynamics</div>
+              <div class="meta" data-en="Sun Yat-sen University · 2022 — 2024" data-zh="中山大学 · 2022 — 2024">Sun Yat-sen University · 2022 — 2024</div>
+              <div class="desc" data-en="Developed patient-specific computational models for recovering clinically relevant pressure–flow biomarkers from routine cardiovascular imaging. This line of work focuses on physiological boundary-condition modeling, side-branch flow compensation, coronary pressure-field computation, and CTA/angiography-derived functional assessment. These methods enable pressure-wire-free FFR estimation and extend anatomical imaging toward quantitative digital physiology." data-zh="构建基于常规临床影像的患者特异性血流动力学计算模型，用于从解剖影像中恢复具有临床意义的压力—流量功能指标。研究重点包括生理边界条件建模、侧支血流补偿、冠脉压力场计算、CTA/造影影像驱动的功能指标量化等。相关方法支持无压力导丝 FFR 评估，并将影像检查从单纯解剖观察扩展为可量化的数字生理评估。">Developed patient-specific computational models for recovering clinically relevant pressure–flow biomarkers from routine cardiovascular imaging. This line of work focuses on physiological boundary-condition modeling, side-branch flow compensation, coronary pressure-field computation, and CTA/angiography-derived functional assessment. These methods enable pressure-wire-free FFR estimation and extend anatomical imaging toward quantitative digital physiology.</div>
+              <div class="res-outcome" data-en="Outcome: IEEE Transactions on Biomedical Engineering, 2024; Computers in Biology and Medicine, 2024." data-zh="成果：IEEE Transactions on Biomedical Engineering, 2024; Computers in Biology and Medicine, 2024。">Outcome: IEEE Transactions on Biomedical Engineering, 2024; Computers in Biology and Medicine, 2024.</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Publications — content injected by publications/index.js -->
+        <section id="publications">
+          <h2 data-en="Publications" data-zh="发表论文">Publications</h2>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+          <h2 data-en="Technical Skills" data-zh="技能">Technical Skills</h2>
+          <div class="two-col">
+
+            <div class="item block">
+              <p><strong data-en="Programming" data-zh="编程语言">Programming:</strong> Python, C/C++</p>
+              <p style="margin-top:6px"><strong data-en="Deep Learning" data-zh="深度学习">Deep Learning:</strong> PyTorch, Reinforcement Learning, Physics-informed Learning, Graph Neural Networks, Neural Operators</p>
+              <p style="margin-top:6px"><strong data-en="Simulation" data-zh="仿真">Simulation:</strong> Computational Fluid Dynamics, Hemodynamic Modelling, Reduced-order Modeling</p>
+            </div>
+
+            <div class="item block">
+              <p><strong data-en="Research Areas" data-zh="研究方向">Research Areas:</strong> <span data-en="Computational Cardiovascular Medicine · Medical Image Computing · Physics-guided Medical AI · Cardiovascular Hemodynamics Modeling · AI-guided Interventional Planning" data-zh="计算心血管医学 · 医学影像计算 · 物理约束医学人工智能 · 心血管血流动力学建模 · AI 辅助介入治疗规划">Computational Cardiovascular Medicine · Medical Image Computing · Physics-guided Medical AI · Cardiovascular Hemodynamics Modeling · AI-guided Interventional Planning</span></p>
+              <p style="margin-top:6px"><strong data-en="Languages" data-zh="语言">Languages:</strong> <span data-en="Chinese (Native), English (Proficient)" data-zh="中文（母语），英语（熟练）">Chinese (Native), English (Proficient)</span></p>
+            </div>
+
+          </div>
+        </section>
+
+        <footer>
+          <p>&copy; <span id="y"></span> <span data-en="Anbang Wang &middot; Sun Yat-sen University &amp; Imperial College London" data-zh="王安邦 &middot; 中山大学 &amp; 帝国理工学院">Anbang Wang &middot; Sun Yat-sen University &amp; Imperial College London</span></p>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="publications/journal_metrics.js"></script>
+  <script src="publications/wang2025pinn.js"></script>
+  <script src="publications/wang2024main.js"></script>
+  <script src="publications/xie2025bi.js"></script>
+  <script src="publications/zhang2024constraint.js"></script>
+  <script src="publications/liu2024quantification.js"></script>
+  <script src="publications/deng2026maps.js"></script>
+  <script src="publications/wang2026rl.js"></script>
+  <script src="publications/arxiv2603_19957.js"></script>
+  <script src="publications/arxiv2603_11325.js"></script>
+  <script src="publications/index.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function switchLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = (lang === 'en') ? el.dataset.en : el.dataset.zh;
+      });
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+      document.getElementById('btnZh').classList.toggle('active', lang === 'zh');
+      document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-CN';
+      if (window.refreshPubLang) refreshPubLang(lang);
+    }
+
+    function switchPubTab(key, btn) {
+      document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.pub-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('pub-' + key).classList.add('active');
+    }
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    function updateActiveLink() {
+      const scrollPos = window.scrollY + 120;
+      let current = '';
+      sections.forEach(sec => { if (scrollPos >= sec.offsetTop) current = sec.id; });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    }
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
+  </script>
+</body>
+</html>
